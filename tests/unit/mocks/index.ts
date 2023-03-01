@@ -1,6 +1,6 @@
 import ICar, { IMessage } from '../../../src/Interfaces/ICar';
 
-export const request: ICar = {
+export const req: ICar = {
   model: 'Nissan GTR',
   year: 2022,
   color: 'Black',
@@ -9,7 +9,7 @@ export const request: ICar = {
   doorsQty: 2,
   seatsQty: 4,
 };
-export const response: ICar = {
+export const res: ICar = {
   id: '63eda9f714d4cf81fca79e4b',
   model: 'Nissan GTR',
   year: 2022,
@@ -19,8 +19,8 @@ export const response: ICar = {
   doorsQty: 2,
   seatsQty: 4,
 };
-export const requestIdError = '63eda9f714d4ff81fca76e9b';
-export const erroMessage: IMessage = {
+export const error = '63eda9f714d4ff81fca76e9b';
+export const message: IMessage = {
   id: undefined,
   model: undefined,
   year: undefined,

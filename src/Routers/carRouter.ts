@@ -3,9 +3,9 @@ import CarController from '../Controllers/carController';
 
 const router = Router();
 
-router.post('/cars', (req, res, next) => new CarController(req, res, next).postCar());
-router.get('/cars', (req, res, next) => new CarController(req, res, next).getCar());
-router.get('/cars/:id', (req, res, next) => new CarController(req, res, next).getCarId());
-router.put('/cars/:id', (req, res, next) => new CarController(req, res, next).update());
+router.post('/', (req, res, next) => new CarController(req, res, next).postCar());
+router.get('/', (req, res, next) => new CarController(req, res, next).getCar());
+router.get('/:id', (req, res, next) => new CarController(req, res, next).getCarId());
+router.put('/:id', (req, res, next) => new CarController(req, res, next).update());
 
 export default router;
