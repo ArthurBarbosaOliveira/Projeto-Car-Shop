@@ -1,4 +1,4 @@
-import { Model, models, Schema, model, isValidObjectId } from 'mongoose';
+import { Model, models, Schema, model, isValidObjectId, UpdateQuery } from 'mongoose';
 import Http from '../Services/http';
 
 export default class AbstracODM<T> {
@@ -23,5 +23,11 @@ export default class AbstracODM<T> {
       throw new Http(422, 'Invalid mongo id');
     }
     return this.model.findById(id);
+  }
+  public async update(id: string, obj: Partial<T>): Promise<T | null> {
+    if (!isValidObjectId(id)) {
+      throw new Http(422, 'Invalid mongo id');
+    }
+    return this.model.findByIdAndUpdate({ _id: id }, { ...obj } as UpdateQuery<T>, { new: true });
   }
 }

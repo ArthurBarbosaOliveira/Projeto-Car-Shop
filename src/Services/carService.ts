@@ -25,4 +25,9 @@ export default class CarServices {
     const result = await carODM.findById(id);
     return this.create(result);
   }
+  public async update(id: string, obj: ICar) {
+    const carODM = new CarModels();
+    const result = await carODM.update(id, obj);
+    return this.create(result);
+  }
 }
