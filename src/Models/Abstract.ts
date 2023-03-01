@@ -1,4 +1,5 @@
-import { Model, models, Schema, model } from 'mongoose';
+import { Model, models, Schema, model, isValidObjectId } from 'mongoose';
+import Http from '../Services/http';
 
 export default class AbstracODM<T> {
   protected model: Model<T>;
@@ -12,5 +13,15 @@ export default class AbstracODM<T> {
 
   public async create(obj: T): Promise<T> {
     return this.model.create({ ...obj });
+  }
+
+  public async find(): Promise<T[]> {
+    return this.model.find();
+  }
+  public async findById(id: string): Promise<T | null> {
+    if (!isValidObjectId(id)) {
+      throw new Http(422, 'Invalid mongo id');
+    }
+    return this.model.findById(id);
   }
 }

@@ -14,4 +14,15 @@ export default class CarServices {
     const result = await carODM.create(car);
     return this.create(result);
   }
+
+  public async getCar() {
+    const carODM = new CarModels();
+    const result = await carODM.find();
+    return result.map((car) => this.create(car));
+  }
+  public async getCarId(id: string) {
+    const carODM = new CarModels();
+    const result = await carODM.findById(id);
+    return this.create(result);
+  }
 }
